@@ -177,11 +177,14 @@ export const HeroSection = () => {
           display: inline-block;
           animation: letterFloat 3s ease-in-out infinite;
           transition: transform 0.3s ease;
+          filter: none !important;
+          -webkit-filter: none !important;
         }
         
         .letter-float:hover {
           transform: translateY(-15px) scale(1.1);
-          text-shadow: 0 0 20px currentColor;
+          filter: none !important;
+          -webkit-filter: none !important;
         }
         
         .letter-float:nth-child(1) { animation-delay: 3.5s; }
