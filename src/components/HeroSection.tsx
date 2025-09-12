@@ -247,7 +247,7 @@ export const HeroSection = () => {
         <div className="tagline mb-16 inline-flex items-center gap-4 px-8 py-4 bg-white/10 backdrop-blur-xl rounded-full border border-blue-400/30 shadow-2xl hover:scale-105 hover:border-blue-400/60 transition-all duration-300 cursor-pointer group">
           <Heart className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors" />
           <span className="text-white text-base font-medium tracking-wide">
-            Emotional Travel Intelligence • Feel-First Journey
+            Emotional Travel Intelligence • Feel-First Journey 
           </span>
           <div className="flex items-center gap-1">
             <Sparkles className="w-4 h-4 text-teal-400" />
