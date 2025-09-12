@@ -61,17 +61,15 @@ export const HeroSection = () => {
           100% { transform: rotate(360deg); }
         }
         
-        /* Enhanced text animations */
+        /* Enhanced text animations - REMOVED BLUR FILTERS */
         @keyframes slideInLeft {
           0% { 
             transform: translateX(-100px); 
             opacity: 0;
-            filter: blur(10px);
           }
           100% { 
             transform: translateX(0); 
             opacity: 1;
-            filter: blur(0px);
           }
         }
         
@@ -79,12 +77,10 @@ export const HeroSection = () => {
           0% { 
             transform: translateX(100px); 
             opacity: 0;
-            filter: blur(10px);
           }
           100% { 
             transform: translateX(0); 
             opacity: 1;
-            filter: blur(0px);
           }
         }
         
@@ -92,12 +88,10 @@ export const HeroSection = () => {
           0% { 
             transform: translateY(60px); 
             opacity: 0;
-            filter: blur(10px);
           }
           100% { 
             transform: translateY(0); 
             opacity: 1;
-            filter: blur(0px);
           }
         }
         
@@ -162,6 +156,7 @@ export const HeroSection = () => {
           background-clip: text;
           -webkit-text-fill-color: transparent;
           position: relative;
+          /* Removed blur from gradientFlow and textGlow animations */
           animation: slideInBottom 1.2s ease-out 1.4s both, gradientFlow 4s ease-in-out 2.5s infinite, textGlow 3s ease-in-out 3s infinite;
         }
         
