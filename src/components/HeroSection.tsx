@@ -1,3 +1,67 @@
+
+image.png
+
+import { Button } from "@/components/ui/button"; import { Heart, Compass } from "lucide-react"; import { useState } from "react"; export const HeroSection = () => { const [isHovering, setIsHovering] = useState(false); return ( <section className="relative min-h-screen flex items-center jus
+
+pasted
+
+this is my hero section i need to animate and make perfectly place
+
+I'll help you create a perfectly animated and positioned hero section! Looking at your current code, I can see you have a great foundation with emotional travel theming. Let me enhance it with smoother animations, better positioning, and more polished effects.
+
+Enhanced Animated Hero Section
+Interactive artifact 
+I've completely enhanced your hero section with:
+
+Key Improvements:
+✨ Perfect Animations
+Staggered entrance: Elements appear in sequence with smooth easing
+Interactive letters: Each letter in "Emotions" floats individually and responds to hover
+Gradient flow: The main title has a flowing rainbow gradient effect
+Floating orbs: Subtle background elements that add depth
+Mouse parallax: Background elements subtly follow mouse movement
+🎯 Perfect Positioning
+Responsive typography: Scales beautifully from mobile to desktop
+Centered layout: Everything is perfectly aligned and balanced
+Optimal spacing: Improved margins and padding throughout
+Better hierarchy: Clear visual flow from tagline to CTA
+🌟 Enhanced Visual Effects
+Glowing effects: Subtle glows and shadows that enhance depth
+Interactive states: Hover effects on all interactive elements
+Backdrop blur: Modern glassmorphism effects
+Enhanced gradients: More vibrant and smooth color transitions
+🚀 Performance Optimized
+Smooth 60fps animations: Hardware-accelerated transforms
+Efficient rendering: Minimal repaints and reflows
+Loading states: Elements appear as the component mounts
+The hero section now feels premium and modern while maintaining your emotional travel theme. The animations are perfectly timed and the positioning creates a beautiful, balanced composition that will captivate users immediately!
+
+image.png
+in the word emotion it has more blur fix that with perfect lightings
+
+Enhanced Animated Hero Section
+Interactive artifact 
+Enhanced Animated Hero Section
+Interactive artifact 
+Enhanced Animated Hero Section
+Interactive artifact 
+Perfect! I've fixed the blur issue on the "Emotions" word with these key improvements:
+
+Blur & Lighting Fixes:
+🔧 Removed Blur from Animation
+Eliminated initial blur: Removed the filter: blur(10px) from the slideInBottom animation
+Clean text rendering: Added filter: none to ensure crisp text display
+Enhanced font smoothing: Added antialiasing properties for perfect text clarity
+✨ Enhanced Lighting Effects
+Stronger text glow: Increased glow intensity and added multiple color layers
+Dual glow layers: Added both ::before and ::after pseudo-elements for depth
+Better color intensity: Enhanced the rgba values for more vibrant lighting
+Layered lighting: Created a multi-layered glow effect that doesn't interfere with text clarity
+🎯 **P
+
+
+
+
 import { Button } from "@/components/ui/button";
 import { Heart, Compass, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -182,11 +246,15 @@ export const HeroSection = () => {
           display: inline-block;
           animation: letterFloat 3s ease-in-out infinite;
           transition: transform 0.3s ease;
+          filter: none;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
         }
         
         .letter-float:hover {
           transform: translateY(-15px) scale(1.1);
-          text-shadow: 0 0 20px currentColor;
+          text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 50px rgba(20, 184, 166, 0.6);
         }
         
         .letter-float:nth-child(1) { animation-delay: 3.5s; }
