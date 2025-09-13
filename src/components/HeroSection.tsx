@@ -141,46 +141,46 @@ export const HeroSection = () => {
           }
         }
 
-        /* Apply animations */
+        /* Apply animations - Perfect timing */
         .animate-float {
-          animation: float 4s ease-in-out infinite;
+          animation: float 6s ease-in-out infinite;
         }
 
         .animate-fadeInUp {
-          animation: fadeInUp 0.6s ease-out;
+          animation: fadeInUp 0.4s ease-out;
         }
 
         .animate-slideDown {
-          animation: slideDown 0.4s ease-out;
+          animation: slideDown 0.3s ease-out;
         }
 
         .animate-slideInUp-1 {
-          animation: slideInUp 0.5s ease-out 0.1s both;
+          animation: slideInUp 0.4s ease-out 0s both;
         }
 
         .animate-slideInUp-2 {
-          animation: slideInUp 0.5s ease-out 0.2s both;
+          animation: slideInUp 0.4s ease-out 0.1s both;
         }
 
         .animate-slideInUp-3 {
-          animation: slideInUp 0.5s ease-out 0.3s both;
+          animation: slideInUp 0.4s ease-out 0.15s both;
         }
 
         .animate-slideInUp-4 {
-          animation: slideInUp 0.6s ease-out 0.4s both;
+          animation: slideInUp 0.4s ease-out 0.2s both;
         }
 
         .animate-slideInUp-5 {
-          animation: slideInUp 0.6s ease-out 0.5s both;
+          animation: slideInUp 0.4s ease-out 0.25s both;
         }
 
         .animate-gradient {
           background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
+          animation: gradient 4s ease infinite;
         }
 
         .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
+          animation: spin-slow 12s linear infinite;
         }
 
         /* Performance optimizations */
