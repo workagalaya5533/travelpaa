@@ -76,7 +76,7 @@ export const tamilNaduDestinations: Destination[] = [
   {
     name: "Kodaikanal",
     country: "Tamil Nadu",
-    image: "https://www.indiantempletour.com/wp-content/uploads/2022/08/Kodaikanal-Package-Tour.jpg",
+    image: "https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-e7ac-620a-b534-27ce8ff77d38/raw?se=2025-09-13T18%3A37%3A18Z&sp=r&sv=2024-08-04&sr=b&scid=fdba6151-6f16-567f-ae04-e19c9f8cb0ea&skoid=d5627e4c-566b-4761-a954-54993b0ed17b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-09-13T15%3A26%3A35Z&ske=2025-09-14T15%3A26%3A35Z&sks=b&skv=2024-08-04&sig=psufHmFqIr5u4u2L%2BYCzsvsxx7RE%2B%2BBaXNjp9dlXRI0%3D",
     emotionalMatch: "Romantic & Dreamy",
     matchPercentage: 92,
     description: "The 'Princess of Hill Stations' offers misty lakes, pine forests, and cozy weather perfect for romantic getaways.",
