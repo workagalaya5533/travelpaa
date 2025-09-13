@@ -6,22 +6,14 @@ import { useState, useEffect } from "react";
 
 export const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setIsLoaded(true);
-
-    // Track mouse movement for subtle parallax (optional enhancement)
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
-      {/* Earth Glow (background) */}
+      {/* Background Glow */}
       <motion.div
         className="absolute rounded-full bg-blue-500/40 blur-3xl"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -67,21 +59,21 @@ export const HeroSection = () => {
         transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
       >
         {/* Button 1 */}
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
           <Button className="flex items-center gap-2 px-6 py-3 text-lg font-medium rounded-2xl shadow-lg bg-gradient-to-r from-pink-500 to-red-500 hover:opacity-90 transition">
             <Heart className="w-5 h-5" /> Get Started
           </Button>
         </motion.div>
 
         {/* Button 2 */}
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
           <Button className="flex items-center gap-2 px-6 py-3 text-lg font-medium rounded-2xl shadow-lg bg-gradient-to-r from-blue-500 to-cyan-500 hover:opacity-90 transition">
             <Compass className="w-5 h-5" /> Explore
           </Button>
         </motion.div>
 
         {/* Button 3 */}
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
           <Button className="flex items-center gap-2 px-6 py-3 text-lg font-medium rounded-2xl shadow-lg bg-gradient-to-r from-purple-500 to-indigo-500 hover:opacity-90 transition">
             <Sparkles className="w-5 h-5" /> Learn More
           </Button>
