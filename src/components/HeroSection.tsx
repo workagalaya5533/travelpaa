@@ -167,7 +167,7 @@ export const HeroSection = () => {
           background: linear-gradient(-45deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2), rgba(16, 185, 129, 0.2), rgba(139, 92, 246, 0.2));
           background-size: 400% 400%;
           border-radius: 30px;
-          filter: blur(0px);
+          filter: blur(15px);
           z-index: -1;
           opacity: 0;
           animation: gradientFlow 4s ease-in-out 3s infinite, fadeInScale 1s ease-out 3s both;
