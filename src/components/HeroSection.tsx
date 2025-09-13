@@ -6,22 +6,43 @@ import { motion } from "framer-motion";
 export const HeroSection = () => {
   const [isHovering, setIsHovering] = useState(false);
 
-  // Animation variants for words
-  const wordVariant = {
-    hidden: { opacity: 0, y: 60 },
+  // Animation variants for each letter
+  const letterVariant = {
+    hidden: { opacity: 0, y: 60, rotateX: 90 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      rotateX: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
-  const containerVariant = {
+  // Container to stagger letters
+  const wordVariant = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.3 }, // Delay between words
+      transition: { staggerChildren: 0.06 }, // delay between letters
     },
   };
+
+  const renderWord = (word: string, gradient = false) => (
+    <motion.span
+      className={`block ${gradient ? "bg-gradient-to-r from-blue-500 via-teal-400 to-green-500 bg-clip-text text-transparent" : ""}`}
+      variants={wordVariant}
+      initial="hidden"
+      animate="visible"
+    >
+      {word.split("").map((char, index) => (
+        <motion.span
+          key={index}
+          variants={letterVariant}
+          className="inline-block"
+        >
+          {char}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black text-white">
@@ -54,33 +75,19 @@ export const HeroSection = () => {
           <Compass className="w-4 h-4 text-teal-400 animate-pulse" />
         </motion.div>
 
-        {/* Heading with word-by-word animation */}
-        <motion.h1
-          className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tight mb-8"
-          variants={containerVariant}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.span className="block" variants={wordVariant}>
-            Journey
-          </motion.span>
-          <motion.span className="block" variants={wordVariant}>
-            Beyond
-          </motion.span>
-          <motion.span
-            className="bg-gradient-to-r from-blue-500 via-teal-400 to-green-500 bg-clip-text text-transparent block"
-            variants={wordVariant}
-          >
-            Emotions
-          </motion.span>
-        </motion.h1>
+        {/* Heading with cinematic letter animation */}
+        <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tight mb-8">
+          {renderWord("Journey")}
+          {renderWord("Beyond")}
+          {renderWord("Emotions", true)}
+        </h1>
 
         {/* Description */}
         <motion.p
           className="max-w-2xl mx-auto text-lg text-gray-300 leading-relaxed mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
+          transition={{ duration: 1, delay: 1.5 }}
         >
           <span className="text-blue-400 font-semibold">Discover your emotional compass</span> and let your feelings
           guide you to <span className="text-teal-400 font-semibold">extraordinary destinations </span>. <br />
@@ -92,7 +99,7 @@ export const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 1, delay: 1.8 }} 
         >
           <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
             <Button className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-10 py-6 rounded-full shadow-lg">
