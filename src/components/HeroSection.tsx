@@ -1,46 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Heart, Compass, Sparkles } from "lucide-react";
-import { useState, useEffect } from "react";
-
-export const HeroSection = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    setIsLoaded(true);
-    
-    const handleMouseMove = (e) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      setMousePosition({ x, y });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black text-white">
-      <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        .hero-container {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        /* Enhanced background animations */
-        @keyframes floatingOrbs {
-          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-          33% { transform: translate(30px, -30px) scale(1.1); opacity: 0.8; }
-          66% { transform: translate(-20px, 20px) scale(0.9); opacity: 0.7; }
-        }
-        
-        @keyframes pulseGlow {
-          0%, 100% { 
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(20, 184, 166, 0.2), 0 0 60px rgba(16, 185, 129, 0.1);
-          }
-          50% { 
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.5), 0 0 80px rgba(20, 184, 166, 0.4), 0 0 120px rgba(16, 185, 129, 0.3);
+), 0 0 80px rgba(20, 184, 166, 0.4), 0 0 120px rgba(16, 185, 129, 0.3);
           }
         }
         
