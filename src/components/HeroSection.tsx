@@ -161,4 +161,4 @@ export const HeroSection = () => {
       `}</style>
     </section>
   );
-};
+}; 
