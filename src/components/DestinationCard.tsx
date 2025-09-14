@@ -334,26 +334,13 @@ export const DestinationCard = ({
           min-height: 44px;
           background: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          color: rgba(255, 255, 255, 0.9);
-          box-shadow: 
-            0 2px 8px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         .destination-btn:hover:not(:disabled) {
-          transform: translateY(-2px) scale(1.02);
-          background: rgba(255, 255, 255, 0.15);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 
-            0 4px 16px rgba(0, 0, 0, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-          color: rgba(255, 255, 255, 1);
+          transform: translateY(-1px);
         }
         .destination-btn:disabled {
           opacity: 0.6;
           cursor: not-allowed;
-          background: rgba(255, 255, 255, 0.05);
         }
       `}</style>
 
@@ -449,4 +436,4 @@ export const DestinationCard = ({
     </Card>
   );
 };  
-     
+    
