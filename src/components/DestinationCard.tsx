@@ -240,7 +240,7 @@ export const DestinationCard = ({
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .destination-location {
-          display: inline-flex;
+          display: inline-flex;a
           align-items: center;
           gap: 6px;
           font-size: 0.92rem;
