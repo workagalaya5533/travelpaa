@@ -109,9 +109,9 @@ export const DestinationCard = ({
   };
 
   const safetyColor = {
-    high: "#10b981",
-    medium: "#f59e0b",
-    low: "#ef4444",
+    high: "#32ba7c",
+    medium: "#f1c232",
+    low: "#e65151",
   };
 
   const getSafetyIcon = () => {
@@ -138,45 +138,22 @@ export const DestinationCard = ({
     <Card className="destination-card h-full">
       <style>{`
         .destination-card {
-          background: rgba(255, 255, 255, 0.25);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border-radius: 1.5rem;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.12),
-            0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-            0 2px 4px rgba(0, 0, 0, 0.05);
+          background: #fff;
+          border-radius: 1rem;
+          box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+          border: 1px solid #ececec;
           width: 100%;
           height: 100%;
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+          font-family: 'Inter', Arial, sans-serif;
           padding: 0;
           overflow: hidden;
           display: flex;
           flex-direction: column;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          position: relative;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        
-        .destination-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-          opacity: 0.6;
-        }
-        
         .destination-card:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 
-            0 20px 40px rgba(0, 0, 0, 0.15),
-            0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-            0 8px 16px rgba(0, 0, 0, 0.1);
-          background: rgba(255, 255, 255, 0.3);
-          border-color: rgba(255, 255, 255, 0.4);
+          box-shadow: 0px 10px 28px rgba(0,0,0,0.6);
+          transform: translateY(-6px);
         }
 
         /* Image */
@@ -185,104 +162,80 @@ export const DestinationCard = ({
           height: 200px;
           width: 100%;
           overflow: hidden;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+          background: #f2f4f7;
           flex-shrink: 0;
-          border-radius: 1.2rem 1.2rem 0 0;
         }
-        
         .destination-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
-          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .destination-card:hover .destination-img {
-          transform: scale(1.05);
         }
 
         /* Top-right match pill */
         .destination-badge {
           position: absolute;
-          top: 16px;
-          right: 16px;
-          background: rgba(0, 0, 0, 0.4);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
+          top: 12px;
+          right: 12px;
+          background: #1f1f1f;
           color: #fff;
-          font-weight: 600;
-          border-radius: 2rem;
-          padding: 8px 16px;
-          font-size: 0.875rem;
+          font-weight: 700;
+          border-radius: 999px;
+          padding: 6px 12px;
+          font-size: 0.86rem;
           line-height: 1;
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          transition: all 0.3s ease;
-        }
-        
-        .destination-badge:hover {
-          background: rgba(0, 0, 0, 0.6);
-          transform: scale(1.05);
+          box-shadow: 0 6px 14px rgba(0,0,0,0.2);
         }
 
         /* Body */
         .destination-body {
-          padding: 24px;
+          padding: 20px;
           display: flex;
           flex-direction: column;
           flex-grow: 1;
           justify-content: space-between;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-          backdrop-filter: blur(10px);
-          position: relative;
         }
 
         /* Title + Location block */
         .destination-title {
-          font-size: 1.5rem;
-          font-weight: 700;
+          font-size: 1.35rem;
+          font-weight: 1500;
           margin: 0;
-          color: #1f2937;
-          letter-spacing: -0.025em;
+          color: #101828;
+          letter-spacing: -0.01em;
           line-height: 1.2;
-          text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
         }
-        
         .destination-location {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          font-size: 0.95rem;
+          gap: 6px;
+          font-size: 0.92rem;
           font-weight: 500;
-          color: #6b7280;
-          margin-top: 8px;
-          margin-bottom: 12px;
+          color: #6b7280; /* muted gray */
+          margin-top: 6px;   /* tight under title */
+          margin-bottom: 10px; /* space above description */
         }
-        
         .destination-location svg {
           width: 16px;
           height: 16px;
           flex: 0 0 16px;
           vertical-align: middle;
-          opacity: 0.8;
         }
 
         /* Description */
         .destination-description {
-          font-size: 1rem;
-          line-height: 1.6;
-          color: #374151;
-          margin: 0 0 16px 0;
+          font-size: 0.96rem;
+          line-height: 1.55;
+          color: #303030;
+          margin: 0 0 12px 0;
           flex-grow: 1;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
         }
 
         /* Content wrapper for consistent spacing */
@@ -295,7 +248,7 @@ export const DestinationCard = ({
         /* Bottom section */
         .destination-bottom {
           margin-top: auto;
-          padding-top: 16px;
+          padding-top: 12px;
         }
 
         /* Meta row (time, price, safety) */
@@ -303,48 +256,33 @@ export const DestinationCard = ({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          font-size: 0.95rem;
-          color: #4b5563;
-          gap: 12px;
-          margin-bottom: 20px;
-          padding: 12px 16px;
-          background: rgba(255, 255, 255, 0.2);
-          backdrop-filter: blur(8px);
-          border-radius: 1rem;
-          border: 1px solid rgba(255, 255, 255, 0.25);
+          font-size: 0.92rem;
+          color: #475d69;
+          gap: 10px;
+          margin-bottom: 16px;
         }
-        
         .meta-left {
           display: inline-flex;
           align-items: center;
-          gap: 20px;
+          gap: 16px;
           white-space: nowrap;
         }
-        
         .meta-item {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          font-weight: 500;
         }
-        
         .safety {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          font-weight: 600;
-          padding: 6px 12px;
-          background: rgba(255, 255, 255, 0.25);
-          border-radius: 0.75rem;
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          gap: 6px;
+          font-weight: 700;
         }
-        
         .safety-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          border-radius: 999px;
           display: inline-block;
-          box-shadow: 0 0 8px currentColor;
         }
 
         /* Buttons */
@@ -352,115 +290,21 @@ export const DestinationCard = ({
           display: flex;
           gap: 12px;
         }
-        
         .destination-btn {
           flex: 1;
-          border-radius: 1rem;
+          border-radius: 0.8rem;
           font-size: 0.95rem;
           font-weight: 600;
-          padding: 12px 16px;
-          min-height: 48px;
-          background: rgba(255, 255, 255, 0.3);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.4);
-          color: #1f2937;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          position: relative;
-          overflow: hidden;
+          padding: 0.7rem;
+          transition: transform 0.15s ease;
+          min-height: 44px;
         }
-        
-        .destination-btn::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-          transition: left 0.5s ease;
-        }
-        
         .destination-btn:hover:not(:disabled) {
-          transform: translateY(-2px);
-          background: rgba(255, 255, 255, 0.4);
-          border-color: rgba(255, 255, 255, 0.6);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+          transform: translateY(-1px);
         }
-        
-        .destination-btn:hover:not(:disabled)::before {
-          left: 100%;
-        }
-        
         .destination-btn:disabled {
           opacity: 0.6;
           cursor: not-allowed;
-          background: rgba(34, 197, 94, 0.2);
-          border-color: rgba(34, 197, 94, 0.3);
-          color: #059669;
-        }
-        
-        .destination-btn:active:not(:disabled) {
-          transform: translateY(0);
-        }
-
-        /* Enhanced visual effects */
-        @media (prefers-reduced-motion: no-preference) {
-          .destination-card {
-            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
-          }
-        }
-        
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-          .destination-card {
-            background: rgba(17, 24, 39, 0.4);
-            border-color: rgba(255, 255, 255, 0.15);
-          }
-          
-          .destination-card:hover {
-            background: rgba(17, 24, 39, 0.5);
-          }
-          
-          .destination-title {
-            color: #f9fafb;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-          }
-          
-          .destination-location {
-            color: #d1d5db;
-          }
-          
-          .destination-description {
-            color: #e5e7eb;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-          }
-          
-          .destination-info-row {
-            background: rgba(31, 41, 55, 0.4);
-            color: #d1d5db;
-          }
-          
-          .destination-btn {
-            background: rgba(31, 41, 55, 0.6);
-            border-color: rgba(255, 255, 255, 0.2);
-            color: #f9fafb;
-          }
-          
-          .destination-btn:hover:not(:disabled) {
-            background: rgba(31, 41, 55, 0.8);
-          }
         }
       `}</style>
 
@@ -481,6 +325,7 @@ export const DestinationCard = ({
         <div className="destination-content">
           <h2 className="destination-title">{name}</h2>
 
+          {/* state name under the title with pin */}
           <div className="destination-location">
             <MapPin />
             <span>{country}</span>
@@ -533,7 +378,7 @@ export const DestinationCard = ({
             )}
 
             <Button
-              className="destination-btn"
+              className="destination-btn" 
               onClick={handleAddToPlan}
               disabled={isSelected}
             >
@@ -554,4 +399,5 @@ export const DestinationCard = ({
       </div>
     </Card>
   );
-};
+}; 
+ 
