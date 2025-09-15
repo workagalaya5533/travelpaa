@@ -611,7 +611,7 @@ export const bangaloreDestinations: Destination[] = [
   {
     name: "Wonderla",
     country: "Near Bangalore",
-    image: "https://images.unsplash.com/photo-1489599096090-da5b0a113f2e?w=800&q=80",
+    image: "https://miro.medium.com/v2/resize:fit:1400/1*gifrbn44486ffK6DVwVEBA.jpeg",
     emotionalMatch: "Thrilling & Exciting",
     matchPercentage: 85,
     description: "Get your adrenaline pumping at one of India's best amusement parks with world-class rides and water attractions.",
