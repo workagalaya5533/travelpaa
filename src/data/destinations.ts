@@ -565,7 +565,7 @@ export const bangaloreDestinations: Destination[] = [
   {
     name: "Innovative Film City",
     country: "Near Bangalore",
-    image: "https://images.unsplash.com/photo-1489599096090-da5b0a113f2e?w=800&q=80",
+    image: "https://i.ibb.co/vx7bQnpK/media-base-jollywood-studios-and-adventure-2023-9-26-t-11-22-30.jpg",
     emotionalMatch: "Fun & Entertaining",
     matchPercentage: 83,
     description: "Experience Bollywood magic and entertainment at this sprawling film studio and theme park, perfect for family fun and excitement.",
