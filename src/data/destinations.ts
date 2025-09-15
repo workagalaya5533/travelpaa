@@ -76,7 +76,7 @@ export const tamilNaduDestinations: Destination[] = [
   {
     name: "Kodaikanal",
     country: "Tamil Nadu",
-    image: "https://ibb.co/Pq35bjx",
+    image: "https://i.ibb.co/RRZCMb2/38734eb0-1528-4445-a762-d162113047b2.png",
     emotionalMatch: "Romantic & Dreamy",
     matchPercentage: 92,
     description: "The 'Princess of Hill Stations' offers misty lakes, pine forests, and cozy weather perfect for romantic getaways.",
