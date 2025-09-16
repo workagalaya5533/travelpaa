@@ -8,6 +8,7 @@ import { MapPin, Clock, Heart, Users, Shield, BedDouble, Camera, Utensils, Activ
 import { usePlans } from "@/contexts/PlanContext";
 import { useToast } from "@/hooks/use-toast";
 import { bangaloreDestinations, keralaDestinations, tamilNaduDestinations, type Destination } from "@/data/destinations";
+import { TravelPlanningModal, type TravelPlanDetails } from "@/components/TravelPlanningModal";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 
@@ -24,6 +25,7 @@ const DestinationDetail = () => {
   const location = useLocation() as { state?: { destination?: Destination } };
   const navigate = useNavigate();
   const { addPlan, selectedPlans, updatePlanStatus } = usePlans();
+  const [showPlanningModal, setShowPlanningModal] = useState(false);
   const { toast } = useToast();
 
   const destination = useMemo(() => {
@@ -130,9 +132,20 @@ const DestinationDetail = () => {
   };
 
   const handleStartJourney = () => {
+    setShowPlanningModal(true);
+  };
+
+  const handlePlanningComplete = (planDetails: TravelPlanDetails) => {
     if (currentPlan) {
       updatePlanStatus(currentPlan.id, 'ongoing');
-      toast({ title: "Journey started!", description: `Your journey to ${destination.name} is now ongoing.` });
+      
+      const startDate = planDetails.travelDates.startDate ? 
+        planDetails.travelDates.startDate.toLocaleDateString() : 'your selected dates';
+      
+      toast({ 
+        title: "Journey Started!", 
+        description: `Your journey to ${destination.name} begins ${startDate}. All planning details saved!` 
+      });
     }
   };
 
@@ -497,6 +510,20 @@ const DestinationDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Travel Planning Modal */}
+      <TravelPlanningModal
+        isOpen={showPlanningModal}
+        onClose={() => setShowPlanningModal(false)}
+        onConfirm={handlePlanningComplete}
+        destination={{
+          name: destination.name,
+          country: destination.country,
+          image: destination.image,
+          bestTime: destination.bestTime,
+          priceRange: destination.priceRange,
+        }}
+      />
     </div>
   );
 };

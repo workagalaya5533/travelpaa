@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { usePlans } from "@/contexts/PlanContext";
+import { TravelPlanningModal, type TravelPlanDetails } from "@/components/TravelPlanningModal";
 import { 
   MapPin, 
   Calendar, 
@@ -30,6 +31,8 @@ const Dashboard = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialTab = (searchParams.get('tab') as "overview" | "selected" | "ongoing" | "completed") || "overview";
   const [activeTab, setActiveTab] = useState(initialTab);
+  const [showPlanningModal, setShowPlanningModal] = useState(false);
+  const [selectedPlanForJourney, setSelectedPlanForJourney] = useState<any>(null);
   const navigate = useNavigate();
 
   const selectedCount = getPlansByStatus('selected').length;
@@ -54,6 +57,32 @@ const Dashboard = () => {
 
   const handleStatusChange = (planId: string, newStatus: 'selected' | 'ongoing' | 'completed') => {
     updatePlanStatus(planId, newStatus);
+  };
+
+  const handleStartJourney = (plan: any) => {
+    setSelectedPlanForJourney(plan);
+    setShowPlanningModal(true);
+  };
+
+  const handlePlanningComplete = (planDetails: TravelPlanDetails) => {
+    if (selectedPlanForJourney) {
+      // Store the planning details with the plan (you might want to extend the plan context for this)
+      updatePlanStatus(selectedPlanForJourney.id, 'ongoing');
+      
+      // Show success message with planning details
+      const startDate = planDetails.travelDates.startDate ? 
+        planDetails.travelDates.startDate.toLocaleDateString() : 'Selected dates';
+      
+      toast({ 
+        title: "Journey Started!", 
+        description: `Your journey to ${selectedPlanForJourney.name} begins ${startDate}. Check your ongoing plans for details.` 
+      });
+      
+      // Navigate to ongoing tab
+      setActiveTab('ongoing');
+      setSearchParams({ tab: 'ongoing' });
+    }
+    setSelectedPlanForJourney(null);
   };
 
   const getTravelSteps = () => [
@@ -205,10 +234,7 @@ const Dashboard = () => {
             <Button
               variant="secondary"
               className="flex-1"
-              onClick={() => {
-                handleStatusChange(plan.id, 'ongoing');
-                navigate('/dashboard?tab=ongoing');
-              }}
+              onClick={() => handleStartJourney(plan)}
               aria-label="Start journey and move to ongoing"
             >
               Start Journey
@@ -283,6 +309,25 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
+
+      {/* Travel Planning Modal */}
+      {selectedPlanForJourney && (
+        <TravelPlanningModal
+          isOpen={showPlanningModal}
+          onClose={() => {
+            setShowPlanningModal(false);
+            setSelectedPlanForJourney(null);
+          }}
+          onConfirm={handlePlanningComplete}
+          destination={{
+            name: selectedPlanForJourney.name,
+            country: selectedPlanForJourney.country,
+            image: selectedPlanForJourney.image,
+            bestTime: selectedPlanForJourney.bestTime,
+            priceRange: selectedPlanForJourney.priceRange,
+          }}
+        />
+      )}
 
       {/* Main Content */}
       <section className="px-6 pb-12">
