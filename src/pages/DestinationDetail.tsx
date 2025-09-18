@@ -501,4 +501,4 @@ const DestinationDetail = () => {
   );
 };
 
-export default DestinationDetail;
+export default DestinationDetail; 
